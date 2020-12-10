@@ -69,6 +69,14 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+        <Style x:Key="ImageGridView_DefaultItemContainerStyle" TargetType="GridViewItem">
+            <Setter Property="Background" Value="DeepSkyBlue"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+        <ItemsPanelTemplate x:Key="ImageGridView_ItemsPanelTemplate">
+            <ItemsWrapGrid Orientation="Horizontal"
+                           HorizontalAlignment="Center"/>
+        </ItemsPanelTemplate>
     </Page.Resources>
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -85,6 +93,8 @@
                   RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.Below="TitleTextBlock"
                   ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
+                  ItemContainerStyle="{StaticResource ImageGridView_DefaultItemContainerStyle}"
+                  ItemsPanel="{StaticResource ImageGridView_ItemsPanelTemplate}"
         />
 
     </RelativePanel>
