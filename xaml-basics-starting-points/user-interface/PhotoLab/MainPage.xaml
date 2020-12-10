@@ -36,7 +36,8 @@
     <Page.Resources>
         <!-- Add the DataTemplate and style Setters here. -->
 
-        <DataTemplate x:Key="ImageGridView_DefaultItemTemplate">
+        <DataTemplate x:Key="ImageGridView_DefaultItemTemplate"
+                      x:DataType="local:ImageFileInfo">
             <Grid Height="300"
                   Width="300"
                   Margin="8">
@@ -46,26 +47,26 @@
                 </Grid.RowDefinitions>
 
                 <Image x:Name="ItemImage"
-                       Source="Assets/StoreLogo.png"
-                       Stretch="Uniform"/>
+                       Source="/Assets/StoreLogo.png"
+                       Stretch="Uniform" />
 
                 <StackPanel Orientation="Vertical"
                             Grid.Row="1" >
-                    <TextBlock Text="ImageTitle"
+                    <TextBlock Text="{x:Bind ImageTitle}"
                                HorizontalAlignment="Center"
                                Style="{StaticResource SubtitleTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center">
-                        <TextBlock Text="ImageFileType"
+                        <TextBlock Text="{x:Bind ImageFileType}"
                                    HorizontalAlignment="Center"
                                    Style="{StaticResource CaptionTextBlockStyle}" />
-                        <TextBlock Text="ImageDimensions"
+                        <TextBlock Text="{x:Bind ImageDimensions}"
                                    HorizontalAlignment="Center"
                                    Style="{StaticResource CaptionTextBlockStyle}"
                                    Margin="8,0,0,0" />
                     </StackPanel>
 
-                    <muxc:RatingControl Value="3" IsReadOnly="True" />
+                    <muxc:RatingControl Value="{x:Bind ImageRating}" IsReadOnly="True" />
                 </StackPanel>
             </Grid>
         </DataTemplate>
